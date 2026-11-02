@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pay an Invoice | Northern Door Lockworks</title>
+<meta name="description" content="Pay your Northern Door Lockworks invoice online by bank account or card.">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://northerndoorlockworks.com/pay.html">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Plus Jakarta Sans',Arial,sans-serif;color:#2b2f3a;background:#f6f3ec;line-height:1.6}
+header{background:#1d2c56;padding:1rem 1.25rem}
+header a{color:#fff;text-decoration:none;display:flex;align-items:center;gap:.7rem;max-width:560px;margin:0 auto;font-family:'DM Serif Display',Georgia,serif;font-size:1.2rem}
+header img{width:40px;height:40px}
+main{max-width:560px;margin:0 auto;padding:2rem 1rem 3rem}
+h1{font-family:'DM Serif Display',Georgia,serif;color:#1d2c56;font-size:2rem;font-weight:400;margin-bottom:.4rem}
+.lead{margin-bottom:1.5rem}
+.opt{display:block;background:#fff;border:2px solid #d9d2c2;border-radius:12px;padding:1.1rem 1.2rem;margin-bottom:1rem;text-decoration:none;color:inherit;transition:border-color .15s}
+.opt:hover,.opt:focus{border-color:#1d2c56;outline:none}
+.opt strong{display:flex;justify-content:space-between;align-items:center;color:#1d2c56;font-size:1.15rem;margin-bottom:.25rem}
+.opt strong span{font-size:1.4rem}
+.opt p{font-size:.95rem}
+.btn{display:block;margin-top:.8rem;background:#1d2c56;color:#fff;text-align:center;padding:.85rem;border-radius:8px;font-weight:700;font-size:1.05rem}
+.opt.soon{opacity:.55;pointer-events:none}
+.note{background:#fff;border-radius:12px;padding:1rem 1.2rem;font-size:.92rem;margin-top:1.5rem}
+.note h2{font-size:1rem;color:#1d2c56;margin-bottom:.3rem}
+.note p{margin-bottom:.5rem}
+.note p:last-child{margin-bottom:0}
+a{color:#1d2c56}
+footer{background:#141f3d;color:#e8e0d0;font-size:.9rem;padding:1.4rem 1.25rem;text-align:center}
+footer a{color:#dfc278;margin:0 .4rem}
+</style>
+</head>
+<body>
+<header><a href="/"><img src="logo.png" alt="" width="40" height="40">Northern Door Lockworks</a></header>
+<main>
+<h1>Pay an Invoice</h1>
+<p class="lead">Have your invoice number handy (it's at the top of your invoice). You'll enter it with the amount on the secure payment page.</p>
+
+<a class="opt" id="bank" href="#">
+  <strong>Bank account <span>🏦</span></strong>
+  <p>Log in to your bank or enter your account number. <b>No fee.</b> Takes 3–4 business days to go through.</p>
+  <span class="btn">Pay by bank account</span>
+</a>
+
+<a class="opt" id="card" href="#">
+  <strong>Credit or debit card <span>💳</span></strong>
+  <p>Pay instantly with any card, Apple Pay or Google Pay.<span id="cardfee"></span></p>
+  <span class="btn">Pay by card</span>
+</a>
+
+<div class="note">
+  <h2>Other ways to pay</h2>
+  <p>Zelle to (321) 794-4130 · Venmo @Jonathan-Parsons-47 · Check to Northern Door Lockworks, 11279 Meadow Road, Ellison Bay, WI 54210.</p>
+  <p>Payments are processed securely by Stripe. Your card or bank details never touch our website.</p>
+  <p>Questions? Call or text <a href="tel:+13217944130">(321) 794-4130</a>.</p>
+</div>
+</main>
+<footer>&copy; 2026 Northern Door Lockworks · Ellison Bay, WI · <a href="tel:+13217944130">(321) 794-4130</a><br><a href="/">Home</a><a href="privacy-policy.html">Privacy</a><a href="terms.html">Terms</a></footer>
+<script>
+// Fill these in once the Stripe account is open (Stripe Payment Links, "customer chooses amount",
+// with a required custom field "Invoice number").
+var BANK_LINK = "";      // bank-account-only link
+var CARD_LINK = "";      // card link
+var CARD_FEE_NOTE = "";  // e.g. " A 1.5% card fee is added." Leave empty for no fee line.
+
+[["bank", BANK_LINK], ["card", CARD_LINK]].forEach(function (p) {
+  var el = document.getElementById(p[0]);
+  if (p[1]) { el.href = p[1]; } else { el.classList.add("soon"); el.querySelector(".btn").textContent = "Coming soon"; }
+});
+if (CARD_FEE_NOTE) document.getElementById("cardfee").textContent = CARD_FEE_NOTE;
+</script>
+</body>
+</html>
